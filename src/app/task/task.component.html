@@ -1,0 +1,29 @@
+<div>
+    <h1>Task List</h1>
+    <form (submit)="createTask()">
+      <input [(ngModel)]="newTaskTitle" placeholder="New Task" name="taskTitle" required>
+      <button type="submit">Add Task</button>
+    </form>
+  
+    <ul>
+      <li *ngFor="let task of tasks">
+        <p> {{task.id}}</p>
+        <p>{{ task.title }} </p>
+        <button (click)="deleteTask(task.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  <div id="httpViewer">
+    <form (submit)="createTaskHttp()">
+        <input [(ngModel)]="newTaskTitle" placeholder="New Task Http" name="taskTitle" required>
+        <button type="submit">Add Http</button>
+    </form>
+
+
+    <ul>
+        @for (item of TasksHttp() ; track item.id){
+        <li>{{item.title}}</li>
+    }
+    </ul>
+    
+  </div>
